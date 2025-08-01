@@ -2,7 +2,8 @@
 using namespace std;
 int TimeTrials() {
     int opcion;
-    do {
+    int tiempos[4];
+    do {        
         cout << "----- Time trials -----" << endl;
         cout << "1. Ingresar tiempos" << endl;
         cout << "2. Tiempos descendentes" << endl;
@@ -11,8 +12,32 @@ int TimeTrials() {
         cin >> opcion;
         switch (opcion) {
             case 1:
+                for  (int i = 0; i < 4; i++) {
+                    cout << "Ingrese un tiempo: ";
+                    cin >> tiempos[i];
+                }
                 break;
             case 2:
+                int descendente[4];
+                int mayor = 0;
+                for (int a = 0; a < 4; a++) {
+                    for (int i = 0; i < 4; i++) {
+                        bool valido = true;
+                        for (int j = 0; i < 4; j++) {
+                            if (descendente[j] == tiempos[i]) {
+                                valido = false;
+                            }
+                        }
+                        if (tiempos[i] > mayor && valido) {
+                            mayor = tiempos[i];
+                        }
+                    }
+                    descendente[a] = mayor;
+                }
+                cout << "--- Orden descendente ---" << endl;
+                for (int num : descendente) {
+                    cout << "[" << num << "]" << endl;
+                }
                 break;
             case 3:
                 break;

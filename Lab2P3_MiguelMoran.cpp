@@ -1,7 +1,8 @@
 #include <iostream>
+#include <cmath>
 using namespace std;
 void printArray(float array[]) {
-    for (int i = 0; i < 4; i ++) {
+    for (int i = 0; i < 10; i ++) {
         cout << "[" << array[i] << "]" << endl;
     }
 }
@@ -89,7 +90,13 @@ int TimeTrials() {
     return 0;
 }
 int Sumatoria() {
-    
+    float terminos[10] = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+    for (int i = 0; i < 10; i++) {
+        float num = sqrt(i + 1) + (pow(-1, i) * log(i + 2));
+        if(i > 0) num += terminos[i - 1];
+        terminos[i] = num;
+    }
+    printArray(terminos);
     return 0;
 }
 int main() {

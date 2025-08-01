@@ -9,20 +9,21 @@ void printArray(float array[]) {
 
 void descendente(float array[], int size) {
     float mayor = 0;
+    int n = 0;
+    float tiempos[4];
+    for (int i = 0; i < 4; i++) {
+        tiempos[i] = array[i];
+    }
     float descendente[4] = {0, 0, 0, 0};
     for (int a = 0; a < size; a++) {
         mayor = 0;
         for (int i = 0; i < size; i++) {
-            bool valido = true;
-            for (int j = 0; j < size; j++) {
-                if (descendente[j] == array[i]) {
-                    valido = false;
-                }
-            }
-            if (array[i] > mayor && valido) {
-                mayor = array[i];
+            if (tiempos[i] > mayor) {
+                mayor = tiempos[i];
+                n = i;
             }
         }
+        tiempos[n] = -1;
         descendente[a] = mayor;
     }
     cout << "--- Orden descendente ---" << endl;
@@ -32,20 +33,21 @@ void descendente(float array[], int size) {
 
 void ranking(float array[], int size) {
     float mayor = 0;
+    int n = 0;
+    float tiempos[4];
+    for (int i = 0; i < 4; i++) {
+        tiempos[i] = array[i];
+    }
     float descendente[4] = { 0, 0, 0, 0 };
     for (int a = 0; a < size; a++) {
         mayor = 0;
         for (int i = 0; i < size; i++) {
-            bool valido = true;
-            for (int j = 0; j < size; j++) {
-                if (descendente[j] == array[i]) {
-                    valido = false;
-                }
-            }
-            if (array[i] > mayor && valido) {
-                mayor = array[i];
+            if (tiempos[i] > mayor) {
+                mayor = tiempos[i];
+                n = i;
             }
         }
+        tiempos[n] = -1;
         descendente[a] = mayor;
     }
     cout << "--- Rankings ---" << endl;

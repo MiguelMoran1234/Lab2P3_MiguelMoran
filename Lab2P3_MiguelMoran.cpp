@@ -2,7 +2,7 @@
 #include <cmath>
 using namespace std;
 void printArray(float array[]) {
-    for (int i = 0; i < 10; i ++) {
+    for (int i = 0; i < 4; i ++) {
         cout << "[" << array[i] << "]" << endl;
     }
 }
@@ -10,11 +10,11 @@ void printArray(float array[]) {
 void descendente(float array[], int size) {
     float mayor = 0;
     float descendente[4] = {0, 0, 0, 0};
-    for (int a = 0; a < 4; a++) {
+    for (int a = 0; a < size; a++) {
         mayor = 0;
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < size; i++) {
             bool valido = true;
-            for (int j = 0; j < 4; j++) {
+            for (int j = 0; j < size; j++) {
                 if (descendente[j] == array[i]) {
                     valido = false;
                 }
@@ -33,11 +33,11 @@ void descendente(float array[], int size) {
 void ranking(float array[], int size) {
     float mayor = 0;
     float descendente[4] = { 0, 0, 0, 0 };
-    for (int a = 0; a < 4; a++) {
+    for (int a = 0; a < size; a++) {
         mayor = 0;
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < size; i++) {
             bool valido = true;
-            for (int j = 0; j < 4; j++) {
+            for (int j = 0; j < size; j++) {
                 if (descendente[j] == array[i]) {
                     valido = false;
                 }
@@ -89,6 +89,21 @@ int TimeTrials() {
     } while (opcion != 4);
     return 0;
 }
+
+void Promedio(float array[], int size) {
+    float suma = 0;
+    for (int i = 0; i < 10; i++) {
+        suma += array[i];
+    }
+    float promedio = suma / size;
+    cout << "El promedio es: " << promedio << endl;
+}
+
+void Mediana(float array[], int size) {
+    float mediana = (array[5] + array[6]) / 2;
+    cout << "La mediana es: " << mediana << endl;
+}
+
 int Sumatoria() {
     float terminos[10] = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
     for (int i = 0; i < 10; i++) {
@@ -96,7 +111,30 @@ int Sumatoria() {
         if(i > 0) num += terminos[i - 1];
         terminos[i] = num;
     }
-    printArray(terminos);
+    int opcion;
+    do {
+        cout << "----- Menu Sumatoria -----" << endl;
+        cout << "1. Promedio" << endl;
+        cout << "2. Mediana" << endl;
+        cout << "3. Graficar" << endl;
+        cout << "4. Salir" << endl;
+        cout << "Ingresar una opcion: ";
+        cin >> opcion;
+        cout << endl;
+        switch (opcion) {
+            case 1:
+
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+            case 4:
+                break;
+            default:
+                cout << "Opcion ingresada no es valida." << endl;
+        }
+    } while (opcion != 4);
     return 0;
 }
 int main() {

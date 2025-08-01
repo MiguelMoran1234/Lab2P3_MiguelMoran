@@ -97,11 +97,30 @@ void Promedio(float array[], int size) {
     }
     float promedio = suma / size;
     cout << "El promedio es: " << promedio << endl;
+    cout << endl;
 }
 
 void Mediana(float array[], int size) {
     float mediana = (array[5] + array[6]) / 2;
     cout << "La mediana es: " << mediana << endl;
+    cout << endl;
+}
+
+void GraficarArreglo(float array[], int size) {
+    int espacios = 0;
+    for (int i = 0; i < size; i++) {
+        cout << "|";
+        espacios = floor(array[i]);
+        for (int j = 0; j < espacios; j++) {
+            cout << " ";
+        }
+        cout << "*  " << array[i] << endl;
+    }
+    cout << "|";
+    for (int i = 0; i < 32; i++) {
+        cout << "_";
+    }
+    cout << endl << endl;
 }
 
 int Sumatoria() {
@@ -123,11 +142,13 @@ int Sumatoria() {
         cout << endl;
         switch (opcion) {
             case 1:
-
+                Promedio(terminos, 10);
                 break;
             case 2:
+                Mediana(terminos, 10);
                 break;
             case 3:
+                GraficarArreglo(terminos, 10);
                 break;
             case 4:
                 break;
